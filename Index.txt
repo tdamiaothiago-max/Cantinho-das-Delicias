@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cantinho das Delícias - Restaurante & Delivery no Shopping Floreat</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              red: '#D92A2A',
+              orange: '#FF6B00',
+              yellow: '#F5A623',
+              dark: '#1E1E24',
+              light: '#F8F9FA'
+            }
+          },
+          fontFamily: {
+            sans: ['Poppins', 'sans-serif'],
+            serif: ['Playfair Display', 'serif']
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-brand-light text-gray-800 font-sans antialiased selection:bg-brand-orange selection:text-white">
+
+  <!-- Prospecting Header Banner -->
+  <div class="bg-gradient-to-r from-brand-red via-brand-orange to-brand-yellow text-white py-2 px-4 text-center text-xs sm:text-sm font-medium shadow-md sticky top-0 z-50 flex items-center justify-between">
+    <div class="max-w-7xl mx-auto flex items-center justify-between w-full">
+      <span class="flex items-center gap-2">
+        <i class="fa-solid fa-wand-magic-sparkles"></i>
+        <span>Proposta de Novo Site Profissional para o <strong>Cantinho das Delícias</strong></span>
+      </span>
+      <button onclick="toggleAdminModal()" class="ml-4 bg-black/20 hover:bg-black/40 text-white text-xs px-2.5 py-1 rounded border border-white/20 transition flex items-center gap-1">
+        <i class="fa-solid fa-lock text-[10px]"></i> Painel Admin
+      </button>
+    </div>
+  </div>
+
+  <!-- Navigation Bar -->
+  <nav class="bg-white/95 backdrop-blur-md sticky top-[36px] z-40 shadow-sm border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-20 items-center">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 bg-gradient-to-br from-brand-red to-brand-orange rounded-full flex items-center justify-center text-white font-serif font-bold text-2xl shadow-lg shadow-brand-red/20">
+            C
+          </div>
+          <div>
+            <span class="text-2xl font-bold font-serif text-brand-dark tracking-tight block leading-none">Cantinho das Delícias</span>
+            <span class="text-xs text-gray-500 font-medium">Shopping Floreat • Diadema</span>
+          </div>
+        </div>
+
+        <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-700">
+          <a href="#cardapio" class="hover:text-brand-orange transition">Cardápio</a>
+          <a href="#sobre" class="hover:text-brand-orange transition">Sobre Nós</a>
+          <a href="#avaliacoes" class="hover:text-brand-orange transition">Avaliações</a>
+          <a href="#contato" class="hover:text-brand-orange transition">Localização</a>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <span id="badge-status-nav" class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800">
+            <span class="w-2 h-2 mr-1.5 bg-emerald-500 rounded-full animate-pulse"></span> Aberto Agora
+          </span>
+          <a id="nav-btn-whatsapp" href="#" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2.5 rounded-full font-semibold text-sm transition shadow-md hover:shadow-lg flex items-center gap-2">
+            <i class="fa-brands fa-whatsapp text-lg"></i>
+            <span class="hidden sm:inline">Pedir no WhatsApp</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="relative bg-brand-dark text-white overflow-hidden py-16 sm:py-24">
+    <div class="absolute inset-0 z-0 opacity-25 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1600&q=80');"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/70 to-transparent"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="max-w-3xl">
+        <span class="inline-block bg-brand-orange/20 border border-brand-orange/40 text-brand-orange text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-md mb-4">
+          Tradicional & Completo
+        </span>
+        <h1 class="text-4xl sm:text-6xl font-serif font-bold tracking-tight leading-tight mb-6">
+          O melhor da Culinária Brasileira, Oriental e Italiana em Diadema.
+        </h1>
+        <p class="text-lg sm:text-xl text-gray-300 mb-8 leading-relaxed">
+          Feijoada, Virado à Paulista, Parmegiana de primeira qualidade, Sushis, Temakis, Massas e Hambúrgueres. Pratos preparados com tempero surreal para todos os gostos!
+        </p>
+
+        <div class="flex flex-wrap gap-4 items-center">
+          <a id="hero-btn-pedir" href="#" target="_blank" class="bg-gradient-to-r from-brand-orange to-brand-red hover:opacity-95 text-white font-bold px-8 py-4 rounded-xl shadow-xl transition transform hover:-translate-y-0.5 flex items-center gap-3">
+            <i class="fa-solid fa-utensils"></i> Faça seu Pedido
+          </a>
+          <a href="#cardapio" class="bg-white/10 hover:bg-white/20 text-white font-medium px-6 py-4 rounded-xl border border-white/20 transition flex items-center gap-2 backdrop-blur-sm">
+            Ver Cardápio
+          </a>
+        </div>
+
+        <div class="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-4 text-center border-t border-white/10 pt-8">
+          <div>
+            <div class="text-2xl font-bold text-brand-orange">R$ 20-40</div>
+            <div class="text-xs text-gray-400">Média por pessoa</div>
+          </div>
+          <div>
+            <div class="text-2xl font-bold text-brand-orange">4.2★</div>
+            <div class="text-xs text-gray-400">Avaliações Google</div>
+          </div>
+          <div>
+            <div class="text-2xl font-bold text-brand-orange">Variedade</div>
+            <div class="text-xs text-gray-400">Oriental & Brasileira</div>
+          </div>
+          <div>
+            <div class="text-2xl font-bold text-brand-orange">Shopping</div>
+            <div class="text-xs text-gray-400">Floreat - Lj 22</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Menu Section -->
+  <section id="cardapio" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl sm:text-4xl font-serif font-bold text-brand-dark mb-4">Nosso Cardápio</h2>
+      <p class="text-gray-600 max-w-2xl mx-auto">Conheça nossas opções preparadas com ingredientes frescos e tempero único. Selecione uma categoria abaixo:</p>
+
+      <!-- Category Filter Tabs -->
+      <div id="category-tabs" class="flex flex-wrap justify-center gap-2 mt-8">
+        <!-- Generated dynamically -->
+      </div>
+    </div>
+
+    <!-- Menu Items Grid -->
+    <div id="menu-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Generated dynamically -->
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="sobre" class="bg-white py-16 border-y border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <span class="text-brand-orange font-bold text-sm tracking-wider uppercase">De Cantinho das Delícias</span>
+          <h2 class="text-3xl sm:text-4xl font-serif font-bold text-brand-dark mt-2 mb-6">Uma experiência gastronômica diversificada e completa.</h2>
+          <p class="text-gray-600 leading-relaxed mb-6" id="about-text">
+            Restaurante de comida brasileira, nacional e internacional, pratos da culinária italiana, francesa, oriental, japonesa e chinesa. Servimos virado à paulista, feijoada, Parmegiana, pasta ao pesto, culinária oriental completa (Temaki, Hot Roll, Yakissoba, Sashimi, Sushi, Uramaki, Tepan, Hossomaki, Maki, Kare Katsu, Lâmen), além de Hambúrgueres e Smashs. Servimos sucos naturais frescos de laranja, abacaxi, abacaxi com hortelã, maracujá, entre outros.
+          </p>
+
+          <div class="grid grid-cols-2 gap-4">
+            <div class="flex items-center gap-3 p-3 bg-brand-light rounded-lg">
+              <i class="fa-solid fa-shop text-brand-orange text-xl"></i>
+              <span class="text-sm font-semibold">No Local / Drive-thru</span>
+            </div>
+            <div class="flex items-center gap-3 p-3 bg-brand-light rounded-lg">
+              <i class="fa-solid fa-motorcycle text-brand-orange text-xl"></i>
+              <span class="text-sm font-semibold">Delivery & To Go</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative">
+          <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80" alt="Banquete de Comidas" class="rounded-2xl shadow-2xl w-full object-cover h-96">
+          <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-xl border border-gray-100 hidden sm:block max-w-xs">
+            <div class="flex items-center gap-2 text-brand-orange mb-1">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p class="text-xs text-gray-600 font-medium italic">"Recomendo refeição de primeira qualidade... tempero surreal... ótima experiência!"</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Google Reviews Section -->
+  <section id="avaliacoes" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <div class="flex justify-center items-center gap-2 mb-2">
+        <i class="fa-brands fa-google text-2xl text-blue-600"></i>
+        <span class="text-xl font-bold text-gray-700">Avaliações do Google</span>
+      </div>
+      <h2 class="text-3xl font-serif font-bold text-brand-dark">O que nossos clientes dizem</h2>
+    </div>
+
+    <div id="reviews-grid" class="grid md:grid-cols-3 gap-6">
+      <!-- Generated dynamically -->
+    </div>
+  </section>
+
+  <!-- Location & Contact Section -->
+  <section id="contato" class="bg-gray-900 text-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12">
+        <div>
+          <h2 class="text-3xl font-serif font-bold mb-6">Visite-nos ou Faça seu Pedido</h2>
+          
+          <div class="space-y-6">
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center text-brand-orange shrink-0">
+                <i class="fa-solid fa-location-dot"></i>
+              </div>
+              <div>
+                <h4 class="font-semibold text-lg">Endereço</h4>
+                <p id="info-address" class="text-gray-400 text-sm">Shopping Floreat - Av. Antônio Piranga, 123 - Lj 22 - Piso Inferior - Centro, Diadema - SP, 09911-160</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center text-brand-orange shrink-0">
+                <i class="fa-solid fa-phone"></i>
+              </div>
+              <div>
+                <h4 class="font-semibold text-lg">Telefone & WhatsApp</h4>
+                <p id="info-phone" class="text-gray-400 text-sm">(11) 4044-6013</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center text-brand-orange shrink-0">
+                <i class="fa-solid fa-clock"></i>
+              </div>
+              <div>
+                <h4 class="font-semibold text-lg">Horário de Funcionamento</h4>
+                <p id="info-hours" class="text-gray-400 text-sm">Aberto • Fecha às 15:00</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-8 flex gap-4">
+            <a id="btn-whatsapp-footer" href="#" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-6 py-3 rounded-xl transition flex items-center gap-2">
+              <i class="fa-brands fa-whatsapp text-lg"></i> Falar no WhatsApp
+            </a>
+            <a href="https://maps.google.com/?q=Shopping+Floreat+Diadema" target="_blank" class="bg-white/10 hover:bg-white/20 text-white font-semibold px-6 py-3 rounded-xl transition flex items-center gap-2">
+              <i class="fa-solid fa-route"></i> Abrir Rotas
+            </a>
+          </div>
+        </div>
+
+        <!-- Google Map Embed Placeholder -->
+        <div class="rounded-2xl overflow-hidden h-80 lg:h-full bg-gray-800 border border-gray-700 relative">
+          <iframe 
+            class="w-full h-full border-0"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3653.6067084654924!2d-46.62319082375549!3d-23.68916386634568!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce44e5b61cd7db%3A0x6b4f3b50c6b12a81!2sShopping%20Floreat!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" 
+            allowfullscreen="" 
+            loading="lazy">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-black text-gray-500 text-xs py-6 border-t border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+      <div>
+        © <span id="year"></span> Cantinho das Delícias - Diadema. Todos os direitos reservados.
+      </div>
+      <div class="flex items-center gap-4">
+        <button onclick="toggleAdminModal()" class="hover:text-white transition flex items-center gap-1">
+          <i class="fa-solid fa-lock text-[10px]"></i> Acesso Restrito (Admin)
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp Button -->
+  <a id="btn-whatsapp-float" href="#" target="_blank" class="fixed bottom-6 right-6 bg-emerald-500 hover:bg-emerald-600 text-white w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-2xl z-40 transition transform hover:scale-110">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <!-- ==================== ADMIN MODAL ==================== -->
+  <div id="admin-modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden shadow-2xl flex flex-col">
+      <!-- Admin Header -->
+      <div class="bg-brand-dark text-white p-4 sm:p-6 flex justify-between items-center border-b border-gray-800">
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-lg bg-brand-orange flex items-center justify-center text-white">
+            <i class="fa-solid fa-user-gear"></i>
+          </div>
+          <div>
+            <h3 class="font-bold text-lg leading-tight">Painel Administrativo</h3>
+            <p class="text-xs text-gray-400">Edite as informações em tempo real no seu navegador</p>
+          </div>
+        </div>
+        <button onclick="toggleAdminModal()" class="text-gray-400 hover:text-white text-xl">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- Login Screen (Shown when locked) -->
+      <div id="admin-login-view" class="p-8 text-center max-w-sm mx-auto my-auto">
+        <i class="fa-solid fa-lock text-4xl text-brand-orange mb-4"></i>
+        <h4 class="font-bold text-gray-800 text-lg mb-2">Digite o PIN de Acesso</h4>
+        <p class="text-xs text-gray-500 mb-4">PIN Padrão de Demonstração: <strong class="text-brand-orange">1234</strong></p>
+        <input type="password" id="admin-pin" placeholder="****" maxlength="4" class="w-full text-center text-2xl font-bold tracking-widest border border-gray-300 rounded-lg p-3 mb-4 focus:ring-2 focus:ring-brand-orange outline-none">
+        <button onclick="checkAdminPin()" class="w-full bg-brand-orange hover:bg-brand-orange/90 text-white font-bold py-3 rounded-lg transition">
+          Entrar no Painel
+        </button>
+      </div>
+
+      <!-- Content Management Screen (Shown after login) -->
+      <div id="admin-content-view" class="hidden flex-1 overflow-y-auto p-6 space-y-8">
+        
+        <!-- Tab Navigation inside Admin -->
+        <div class="flex border-b border-gray-200 gap-4 font-semibold text-sm">
+          <button onclick="switchAdminTab('general')" id="tab-btn-general" class="pb-2 border-b-2 border-brand-orange text-brand-orange">Informações Gerais</button>
+          <button onclick="switchAdminTab('menu')" id="tab-btn-menu" class="pb-2 border-b-2 border-transparent text-gray-500 hover:text-gray-700">Gerenciar Cardápio</button>
+        </div>
+
+        <!-- SECTION 1: GENERAL INFO -->
+        <div id="admin-sec-general" class="space-y-4">
+          <div class="grid md:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-bold uppercase text-gray-600 mb-1">Telefone Principal</label>
+              <input type="text" id="edit-phone" class="w-full border rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-brand-orange outline-none">
+            </div>
+            <div>
+              <label class="block text-xs font-bold uppercase text-gray-600 mb-1">WhatsApp (apenas números)</label>
+              <input type="text" id="edit-whatsapp" class="w-full border rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-brand-orange outline-none">
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold uppercase text-gray-600 mb-1">Endereço Completo</label>
+            <input type="text" id="edit-address" class="w-full border rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-brand-orange outline-none">
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-bold uppercase text-gray-600 mb-1">Horário de Funcionamento</label>
+              <input type="text" id="edit-hours" class="w-full border rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-brand-orange outline-none">
+            </div>
+            <div>
+              <label class="block text-xs font-bold uppercase text-gray-600 mb-1">Status de Funcionamento</label>
+              <select id="edit-status" class="w-full border rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-brand-orange outline-none">
+                <option value="Aberto">Aberto Agora</option>
+                <option value="Fechado">Fechado</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION 2: MENU MANAGER -->
+        <div id="admin-sec-menu" class="hidden space-y-6">
+          <div class="flex justify-between items-center">
+            <h4 class="font-bold text-gray-800">Itens do Cardápio</h4>
+            <button onclick="openAddMenuItemModal()" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold px-3 py-2 rounded-lg flex items-center gap-1">
+              <i class="fa-solid fa-plus"></i> Adicionar Item
+            </button>
+          </div>
+
+          <div class="overflow-x-auto border rounded-xl">
+            <table class="w-full text-left text-sm">
+              <thead class="bg-gray-50 border-b text-gray-600 text-xs uppercase">
+                <tr>
+                  <th class="p-3">Nome</th>
+                  <th class="p-3">Categoria</th>
+                  <th class="p-3">Preço (R$)</th>
+                  <th class="p-3 text-right">Ações</th>
+                </tr>
+              </thead>
+              <tbody id="admin-menu-table-body" class="divide-y">
+                <!-- Generated dynamically -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Admin Footer Actions -->
+      <div id="admin-footer-actions" class="hidden bg-gray-50 p-4 border-t flex justify-between items-center">
+        <button onclick="resetDefaultData()" class="text-xs text-red-600 hover:underline">
+          <i class="fa-solid fa-rotate-left"></i> Restaurar Dados Originais
+        </button>
+        <div class="flex gap-2">
+          <button onclick="toggleAdminModal()" class="px-4 py-2 border rounded-lg text-sm text-gray-600 hover:bg-gray-100">Cancelar</button>
+          <button onclick="saveAdminChanges()" class="px-4 py-2 bg-brand-orange hover:bg-brand-orange/90 text-white font-bold rounded-lg text-sm">Salvar Alterações</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript Application Data & Logic -->
+  <script>
+    // Initial Default Data
+    const defaultData = {
+      phone: "(11) 4044-6013",
+      whatsapp: "551140446013",
+      address: "Shopping Floreat - Av. Antônio Piranga, 123 - Lj 22 - Piso Inferior - Centro, Diadema - SP, 09911-160",
+      hours: "Aberto • Fecha às 15:00",
+      status: "Aberto",
+      menu: [
+        { id: 1, name: "Virado à Paulista", category: "Brasileira", price: "28,90", desc: "Típico prato paulista completo com tutu de feijão, bisteca, couve, ovo frito e banana.", img: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=500&q=80" },
+        { id: 2, name: "Feijoada Tradicional", category: "Brasileira", price: "34,90", desc: "Feijoada completa com carnes selecionadas, farofa, couve fatiada e laranjas frescas.", img: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=500&q=80" },
+        { id: 3, name: "Filé à Parmegiana", category: "Italiana", price: "36,00", desc: "Filé empanado coberto com queijo derretido e molho de tomate artesanal. Acompanha arroz e fritas.", img: "https://images.unsplash.com/photo-1632778149955-e80f8ceca2e8?auto=format&fit=crop&w=500&q=80" },
+        { id: 4, name: "Combo Sushi & Temaki", category: "Oriental", price: "39,90", desc: "Combinado especial com Sushis variados, Uramakis, Hossomakis e 1 Temaki à sua escolha.", img: "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&w=500&q=80" },
+        { id: 5, name: "Yakissoba Especial", category: "Oriental", price: "29,90", desc: "Macarrão oriental salteado com legumes frescos e tiras de carne e frango selecionados.", img: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=500&q=80" },
+        { id: 6, name: "Smash Burger Duplo", category: "Hambúrgueres", price: "24,90", desc: "Dois hambúrgueres artesanais smash, queijo prato derretido, maionese da casa em pão brioche.", img: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=500&q=80" },
+        { id: 7, name: "Suco Natural de Abacaxi c/ Hortelã", category: "Bebidas", price: "9,90", desc: "Suco natural preparado na hora com abacaxi pérola e folhas de hortelã plenas.", img: "https://images.unsplash.com/photo-1621263764928-df1444c5e859?auto=format&fit=crop&w=500&q=80" }
+      ],
+      reviews: [
+        { text: "A comida é muito boa para quem come fritura, porém tem poucas opções.", author: "Cliente Google", stars: 4 },
+        { text: "Recomendo refeição de primeira qualidade... tempero surreal... ótima experiência!", author: "Cliente Google", stars: 5 },
+        { text: "Variedade de saladas mas pouca opção de misturas, valor razoável.", author: "Cliente Google", stars: 4 }
+      ]
+    };
+
+    // Load state from localStorage or initialize defaults
+    let appData = JSON.parse(localStorage.getItem('cantinho_data')) || defaultData;
+    let activeCategory = "Todas";
+
+    function saveData() {
+      localStorage.setItem('cantinho_data', JSON.stringify(appData));
+      renderPage();
+    }
+
+    function renderPage() {
+      // Set Year
+      document.getElementById('year').innerText = new Date().getFullYear();
+
+      // Info binding
+      document.getElementById('info-address').innerText = appData.address;
+      document.getElementById('info-phone').innerText = appData.phone;
+      document.getElementById('info-hours').innerText = appData.hours;
+
+      // WhatsApp links
+      const waUrl = `https://wa.me/${appData.whatsapp}?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20fazer%20um%20pedido.`;
+      document.getElementById('nav-btn-whatsapp').href = waUrl;
+      document.getElementById('hero-btn-pedir').href = waUrl;
+      document.getElementById('btn-whatsapp-footer').href = waUrl;
+      document.getElementById('btn-whatsapp-float').href = waUrl;
+
+      // Status badge
+      const statusBadge = document.getElementById('badge-status-nav');
+      if (appData.status === "Aberto") {
+        statusBadge.className = "inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800";
+        statusBadge.innerHTML = `<span class="w-2 h-2 mr-1.5 bg-emerald-500 rounded-full animate-pulse"></span> Aberto Agora`;
+      } else {
+        statusBadge.className = "inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-red-100 text-red-800";
+        statusBadge.innerHTML = `<span class="w-2 h-2 mr-1.5 bg-red-500 rounded-full"></span> Fechado`;
+      }
+
+      // Render Category Tabs
+      const categories = ["Todas", ...new Set(appData.menu.map(item => item.category))];
+      const tabsContainer = document.getElementById('category-tabs');
+      tabsContainer.innerHTML = categories.map(cat => `
+        <button onclick="setCategory('${cat}')" class="px-4 py-2 rounded-full text-xs font-semibold transition ${cat === activeCategory ? 'bg-brand-orange text-white shadow-md' : 'bg-white text-gray-600 hover:bg-gray-100'}">
+          ${cat}
+        </button>
+      `).join('');
+
+      // Render Menu Items Grid
+      const filteredMenu = activeCategory === "Todas" ? appData.menu : appData.menu.filter(i => i.category === activeCategory);
+      const menuGrid = document.getElementById('menu-grid');
+      menuGrid.innerHTML = filteredMenu.map(item => `
+        <div class="bg-white rounded-2xl shadow-sm hover:shadow-md transition overflow-hidden border border-gray-100 flex flex-col">
+          <img src="${item.img}" alt="${item.name}" class="h-48 w-full object-cover">
+          <div class="p-5 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex justify-between items-start mb-2">
+                <h3 class="font-bold text-lg text-brand-dark">${item.name}</h3>
+                <span class="text-xs bg-brand-orange/10 text-brand-orange font-bold px-2 py-1 rounded">R$ ${item.price}</span>
+              </div>
+              <p class="text-xs text-gray-500 mb-4">${item.desc}</p>
+            </div>
+            <a href="https://wa.me/${appData.whatsapp}?text=Olá!%20Gostaria%20de%20pedir:%20${encodeURIComponent(item.name)}" target="_blank" class="w-full bg-gray-50 hover:bg-brand-orange hover:text-white text-gray-700 font-semibold py-2 rounded-lg text-xs transition flex items-center justify-center gap-2">
+              <i class="fa-brands fa-whatsapp"></i> Pedir este Prato
+            </a>
+          </div>
+        </div>
+      `).join('');
+
+      // Render Reviews
+      const reviewsGrid = document.getElementById('reviews-grid');
+      reviewsGrid.innerHTML = appData.reviews.map(rev => `
+        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+          <div class="flex text-yellow-400 text-xs mb-3">
+            ${'<i class="fa-solid fa-star"></i>'.repeat(rev.stars)}
+          </div>
+          <p class="text-xs text-gray-600 italic mb-4">"${rev.text}"</p>
+          <div class="text-xs font-bold text-gray-800">${rev.author}</div>
+        </div>
+      `).join('');
+    }
+
+    function setCategory(cat) {
+      activeCategory = cat;
+      renderPage();
+    }
+
+    // ==================== ADMIN LOGIC ====================
+    let isAdminLoggedIn = false;
+
+    // Keyboard shortcut to open admin: Ctrl + Shift + A
+    document.addEventListener('keydown', (e) => {
+      if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'a') {
+        e.preventDefault();
+        toggleAdminModal();
+      }
+    });
+
+    function toggleAdminModal() {
+      const modal = document.getElementById('admin-modal');
+      modal.classList.toggle('hidden');
+
+      if (!modal.classList.contains('hidden') && isAdminLoggedIn) {
+        populateAdminFields();
+      }
+    }
+
+    function checkAdminPin() {
+      const pin = document.getElementById('admin-pin').value;
+      if (pin === "1234") {
+        isAdminLoggedIn = true;
+        document.getElementById('admin-login-view').classList.add('hidden');
+        document.getElementById('admin-content-view').classList.remove('hidden');
+        document.getElementById('admin-footer-actions').classList.remove('hidden');
+        populateAdminFields();
+      } else {
+        alert("PIN Incorreto! Tente novamente (PIN Padrão: 1234).");
+      }
+    }
+
+    function switchAdminTab(tab) {
+      document.getElementById('tab-btn-general').className = tab === 'general' ? 'pb-2 border-b-2 border-brand-orange text-brand-orange' : 'pb-2 border-b-2 border-transparent text-gray-500 hover:text-gray-700';
+      document.getElementById('tab-btn-menu').className = tab === 'menu' ? 'pb-2 border-b-2 border-brand-orange text-brand-orange' : 'pb-2 border-b-2 border-transparent text-gray-500 hover:text-gray-700';
+
+      document.getElementById('admin-sec-general').classList.toggle('hidden', tab !== 'general');
+      document.getElementById('admin-sec-menu').classList.toggle('hidden', tab !== 'menu');
+    }
+
+    function populateAdminFields() {
+      document.getElementById('edit-phone').value = appData.phone;
+      document.getElementById('edit-whatsapp').value = appData.whatsapp;
+      document.getElementById('edit-address').value = appData.address;
+      document.getElementById('edit-hours').value = appData.hours;
+      document.getElementById('edit-status').value = appData.status;
+
+      renderAdminMenuTable();
+    }
+
+    function renderAdminMenuTable() {
+      const tbody = document.getElementById('admin-menu-table-body');
+      tbody.innerHTML = appData.menu.map(item => `
+        <tr>
+          <td class="p-3 font-medium">${item.name}</td>
+          <td class="p-3 text-gray-500">${item.category}</td>
+          <td class="p-3">R$ ${item.price}</td>
+          <td class="p-3 text-right">
+            <button onclick="deleteMenuItem(${item.id})" class="text-red-500 hover:text-red-700 text-xs font-bold">
+              <i class="fa-solid fa-trash"></i> Excluir
+            </button>
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    function openAddMenuItemModal() {
+      const name = prompt("Nome do prato:");
+      if (!name) return;
+      const category = prompt("Categoria (ex: Brasileira, Oriental, Italiana, Bebidas):", "Gerais");
+      const price = prompt("Preço (ex: 29,90):", "25,00");
+      const desc = prompt("Descrição curta:", "Prato saboroso feito na hora.");
+      const img = prompt("URL da Imagem:", "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=500&q=80");
+
+      const newItem = {
+        id: Date.now(),
+        name,
+        category: category || "Gerais",
+        price: price || "0,00",
+        desc: desc || "",
+        img: img || "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=500&q=80"
+      };
+
+      appData.menu.push(newItem);
+      renderAdminMenuTable();
+    }
+
+    function deleteMenuItem(id) {
+      if (confirm("Tem certeza que deseja remover este item?")) {
+        appData.menu = appData.menu.filter(item => item.id !== id);
+        renderAdminMenuTable();
+      }
+    }
+
+    function saveAdminChanges() {
+      appData.phone = document.getElementById('edit-phone').value;
+      appData.whatsapp = document.getElementById('edit-whatsapp').value;
+      appData.address = document.getElementById('edit-address').value;
+      appData.hours = document.getElementById('edit-hours').value;
+      appData.status = document.getElementById('edit-status').value;
+
+      saveData();
+      toggleAdminModal();
+      alert("Alterações salvas com sucesso!");
+    }
+
+    function resetDefaultData() {
+      if (confirm("Deseja restaurar as informações originais do Cantinho das Delícias?")) {
+        appData = JSON.parse(JSON.stringify(defaultData));
+        saveData();
+        populateAdminFields();
+        alert("Dados restaurados para os originais!");
+      }
+    }
+
+    // Initial Render
+    renderPage();
+  </script>
+</body>
+</html>
